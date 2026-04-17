@@ -90,7 +90,12 @@ class FirecrawlClient:
         resp = httpx.post(
             f"{self.api_url}/v2/agent", json=payload, headers=self._headers(), timeout=60.0
         )
-        resp.raise_for_status()
+        if resp.status_code >= 400:
+            raise FirecrawlError(
+                f"/v2/agent POST {resp.status_code}: {resp.text[:1500]}",
+                status=str(resp.status_code),
+                response={"body": resp.text},
+            )
         body = resp.json()
         if not body.get("success") or "id" not in body:
             raise FirecrawlError(f"unexpected /agent POST response: {body}", response=body)

@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "materials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "material_name": {"type": "string"},
+          "stimulus": {"type": "string"},
+          "mesogen_smiles": {"type": ["string", "null"]},
+          "mesogen_name": {"type": ["string", "null"]},
+          "crosslinker_smiles": {"type": ["string", "null"]},
+          "crosslinker_name": {"type": ["string", "null"]},
+          "mol_pct_crosslinker": {"type": ["number", "null"]},
+          "glass_transition_c": {"type": ["number", "null"]},
+          "nematic_iso_c": {"type": ["number", "null"]},
+          "actuation_strain_pct": {"type": ["number", "null"]},
+          "blocking_stress_kpa": {"type": ["number", "null"]},
+          "work_density_kj_m3": {"type": ["number", "null"]},
+          "youngs_modulus_mpa": {"type": ["number", "null"]},
+          "response_time_s": {"type": ["number", "null"]},
+          "cycle_life": {"type": ["integer", "null"]},
+          "drive_magnitude_value": {"type": ["number", "null"]},
+          "drive_magnitude_unit": {"type": ["string", "null"]},
+          "notes": {"type": ["string", "null"]},
+          "extraction_confidence": {"type": "number"}
+        },
+        "required": ["material_name", "extraction_confidence"]
+      }
+    }
+  },
+  "required": ["materials"]
+}
